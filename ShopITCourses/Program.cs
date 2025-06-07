@@ -12,7 +12,7 @@ using ShopITCourses.Services.IServices;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//Це для MSSQL Server
 //var connectionString = builder.Configuration.GetConnectionString("MSSQLConnection") ?? throw new InvalidOperationException("Not found ConnectionStrings");
 // Add services to the container.
 
