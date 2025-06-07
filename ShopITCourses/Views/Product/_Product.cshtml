@@ -1,0 +1,34 @@
+﻿@using ShopITCourses.DAL.Repository.IRepository
+@inject IProductRepository _prodrepo;
+@model ShopITCourses.Models.Product
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <label asp-for="Name" class="control-label bold"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Description" class="control-label bold"></label>
+    <textarea asp-for="Description" class="form-control"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Price" class="control-label bold"></label>
+    <input type="number" asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Image" class="control-label bold"></label>
+    <input type="file" name="files" id="uploadBox" multiple accept="image/*" class="form-control" />
+    <span asp-validation-for="Image" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CategoryId" class="control-label bold"></label>
+@*     <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"> *@
+        <select asp-for="CategoryId" class="form-control" asp-items="@_prodrepo.GetAllDropDownList("Category")">
+        <option disabled selected>Оберіть категорію</option>
+    </select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+</div>
+<br />
